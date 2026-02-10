@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+:root {
+  /* Ocean Color Palette */
+  --ocean-deep: #0a1628;
+  --ocean-blue: #1a2f4f;
+  --ocean-mid: #2a4a6f;
+  --ocean-aqua: #3d7ea6;
+  --ocean-teal: #4fb3bf;
+  --ocean-light: #7dd3d9;
+  --ocean-soft: #a8e6f0;
+
+  /* Gold Accents */
+  --gold: #d4af37;
+  --gold-light: #f0d98d;
+  --gold-dark: #b8941f;
+
+  /* Neutrals */
+  --white: #ffffff;
+  --off-white: #f8f9fa;
+  --light-gray: #e1e8ed;
+  --gray: #8b9db0;
+  --dark-gray: #4a5568;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+
+  /* Background */
+  --background: var(--ocean-deep);
+  --foreground: var(--white);
+}
+
+@theme inline {
+  /* Colors */
+  --color-ocean-deep: var(--ocean-deep);
+  --color-ocean-blue: var(--ocean-blue);
+  --color-ocean-mid: var(--ocean-mid);
+  --color-ocean-aqua: var(--ocean-aqua);
+  --color-ocean-teal: var(--ocean-teal);
+  --color-ocean-light: var(--ocean-light);
+  --color-ocean-soft: var(--ocean-soft);
+
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Outfit', system-ui, sans-serif;
+
+  /* Animations */
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-fade-in-up: fadeInUp 0.6s ease-out;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(-100px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  background: var(--ocean-light);
+  border-radius: 50%;
+  box-shadow: 0 0 4px var(--ocean-teal);
+  animation: float-particle linear infinite;
+}
+
+body {
+  background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-blue) 50%, var(--ocean-mid) 100%);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+}
+
+/* Glassmorphism Utility Classes */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(10, 22, 40, 0.3);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(10, 22, 40, 0.3), 0 0 20px rgba(61, 126, 166, 0.5);
+  border-color: var(--ocean-teal);
+}
+
+.floating-element {
+  animation: var(--animate-float);
+}
+
+.fade-in-up {
+  animation: var(--animate-fade-in-up);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--ocean-teal) 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold Glow */
+.gold-glow {
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+}
+
+.blue-glow {
+  filter: drop-shadow(0 0 20px rgba(61, 126, 166, 0.5));
+}
+
+/* Animation Utilities */
+.animation-duration-15s {
+  animation-duration: 15s;
+}
+
+.animation-duration-18s {
+  animation-duration: 18s;
+}
+
+.animation-duration-20s {
+  animation-duration: 20s;
+}
+
+.animation-duration-22s {
+  animation-duration: 22s;
+}
+
+.animation-duration-24s {
+  animation-duration: 24s;
+}
+
+.animation-duration-25s {
+  animation-duration: 25s;
+}
+
+.animation-duration-28s {
+  animation-duration: 28s;
+}
+
+.animation-delay-0 {
+  animation-delay: 0s;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-3000 {
+  animation-delay: 3s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+.animation-delay-5000 {
+  animation-delay: 5s;
+}
+
+.animation-delay-6000 {
+  animation-delay: 6s;
+}
+
+.animation-delay-7000 {
+  animation-delay: 7s;
+}
+
+/* Force hide Next.js Dev Indicator */
+div[data-nextjs-toast],
+div[data-nextjs-toast-errors-parent],
+nextjs-portal {
+  display: none !important;
+}
+
+#__next-build-watcher,
+#__NEXT_BUILD_INDICATOR {
+  display: none !important;
+}
